@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Modelo;
 class Secuencias {
 
     //Suma 1-1000

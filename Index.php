@@ -1,4 +1,7 @@
-<?php require_once 'Utilidades/Navegacion.php';?>
+<?php 
+require_once __DIR__ . '/vendor/autoload.php';
+use App\Utilidades\Navegacion;
+?>
 
 <!DOCTYPE html>
 <html lang="es">

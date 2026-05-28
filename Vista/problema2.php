@@ -1,4 +1,9 @@
-<?php require_once '../Controladores/Problema2Controller.php'; ?>
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+use App\Controladores\Problema2Controller;
+
+$resultado = Problema2Controller::calcular();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -8,18 +13,17 @@
 </head>
 <body>
 
-    <h1>Suma del 1 al 1000</h1>
+<h1>Suma del 1 al 1000</h1>
 
-    <form method="POST">
-        <button type="submit" name="calcular">Ver resultado de la suma</button>
-    </form>
+<form method="POST">
+    <button type="submit" name="calcular">Ver resultado</button>
+</form>
 
-    <!--Solo muestra el resultado cuando el usuario presiona el botón-->
-    <?php if ($resultado !== null): ?>
-        <h2>Resultado: <?= $resultado; ?></h2>
-    <?php endif; ?>
+<?php if ($resultado !== null): ?>
+    <h2>Resultado: <?= $resultado ?></h2>
+<?php endif; ?>
 
-    <?php require_once 'layout/footer.php'; ?>
+<?php require_once __DIR__ . '/layout/footer.php'; ?>
 
 </body>
 </html>

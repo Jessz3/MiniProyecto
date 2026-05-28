@@ -1,13 +1,17 @@
 <?php
-require_once '../Modelo/Secuencias.php';
+namespace App\Controladores;
+use App\Modelo\Secuencias;
 
-//Variable que almacenará el resultado. No muestra nada antes de que se presione el botón
-$resultado = null;
+class Problema2Controller {
 
-//Verifica si se presionó el botón
-if (isset($_POST['calcular'])) {
+    public static function calcular() {
 
-    $resultado = Secuencias::sumarUnoAMil();
+        if (isset($_POST['calcular'])) {
+            return Secuencias::sumarUnoAMil();
+        }
+
+        return null;
+    }
 }
 
 ?>
