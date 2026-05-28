@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema2Controller;
 
-$resultado = Problema2Controller::calcular();
+$resultado = Problema2Controller::calcular(); //Llama a la función calcular del controlador para obtener el resultado de la suma del 1 al 1000.
 ?>
 
 <!DOCTYPE html>

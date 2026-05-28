@@ -1,4 +1,4 @@
-<!--Footer general-->
+<!--Footer reutilizable-->
 
 <?php 
 use App\Utilidades\Navegacion; 
