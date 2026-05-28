@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Utilidades;
+
 class Sanitizacion {
     //Elimina etiquetas HTML y scripts peligrosos
     public static function limpiarEtiquetas(string $dato): string {

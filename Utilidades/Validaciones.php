@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Utilidades;
+
 class Validaciones {
 
     //Validar que el campo no puede estar vacío
