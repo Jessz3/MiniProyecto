@@ -11,7 +11,7 @@ $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y ob
 <head>
     <meta charset="UTF-8">
     <title>Problema 5</title>
-    <link rel="stylesheet" href="../CSS/estilos.css"> <!--Enlaza el archivo de estilos CSS-->
+    <link rel="stylesheet" href="../CSS/estilos.css"> 
 </head>
 
 <!--Incluye la biblioteca Chart.js para gráficos-->

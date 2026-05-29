@@ -13,6 +13,12 @@
     margin-bottom: 0;
 }
 
+img {
+    width: 1200px;
+    height: 650px;
+    margin-top: 20px;
+}
+
 /*Estilos para el contenedor del gráfico del problema 5 - Clasificación de edades*/
 .contenedor-grafico {
     width: 800px;
