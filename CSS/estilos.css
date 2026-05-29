@@ -1,0 +1,21 @@
+/*Inputs*/
+.campo {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/*Mensajes de error*/
+.error {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/*Estilos para el contenedor del gráfico del problema 5 - Clasificación de edades*/
+.contenedor-grafico {
+    width: 800px;
+    height: 400px;
+    margin: 30px auto;
+}
