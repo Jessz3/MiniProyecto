@@ -47,7 +47,10 @@ $resultado = Problema8Controller::procesar($_POST);
         <?= $resultado['estacion'] ?>
     </p>
 
-    <img src="../assets/img/<?= $resultado['imagen'] ?>" alt="<?= $resultado['estacion'] ?>">
+    <!--Imagen de la estación. Si no hay imagen, no se muestra nada -->
+    <?php if (!empty($resultado['imagen'])): ?>
+        <img src="../assets/img/<?= $resultado['imagen'] ?>" alt="<?= $resultado['estacion'] ?>">
+    <?php endif; ?>
 
 <?php endif; ?>
 

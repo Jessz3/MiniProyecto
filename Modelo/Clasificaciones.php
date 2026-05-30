@@ -60,6 +60,12 @@ public static function obtenerEstacion(string $fechaIngresada): array {
             "imagen" => "primavera.png"
         ];
     }
+
+    //Si por alguna razón no se pudo determinar la estación, retorna un valor por defecto
+    return [
+    "estacion" => "No se pudo determinar la estación",
+    "imagen" => ""
+    ];
 }}
 
 ?>
