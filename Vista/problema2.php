@@ -16,15 +16,15 @@ $resultado = Problema2Controller::calcular(); //Llama a la función calcular del
 
 <h1>Suma del 1 al 1000</h1>
 
-<form method="POST">
-    <button type="submit" name="calcular">Ver resultado</button>
-</form>
-<?= Componentes::btnLimpiar() ?>
-<?= Componentes::scriptLimpiar() ?>
-
 <?php if ($resultado !== null): ?>
     <h2>Resultado: <?= $resultado ?></h2>
 <?php endif; ?>
+
+<form method="POST">
+    <button type="submit" name="calcular">Ver resultado</button>
+    <?= Componentes::btnLimpiar() ?>
+    <?= Componentes::scriptLimpiar() ?>
+</form>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
 
