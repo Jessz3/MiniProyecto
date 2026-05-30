@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema8Controller;
 use App\Utilidades\Sanitizacion;
+use App\Utilidades\Componentes;
 
 $resultado = Problema8Controller::procesar($_POST);
 ?>
@@ -34,6 +35,8 @@ $resultado = Problema8Controller::procesar($_POST);
     </div>
 
     <button type="submit">Mostrar estación</button>
+    <?= Componentes::btnLimpiar() ?>
+    <?= Componentes::scriptLimpiar() ?>
 </form>
 
 <?php if ($resultado !== null && empty($resultado['errores'])): ?>
@@ -55,6 +58,5 @@ $resultado = Problema8Controller::procesar($_POST);
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
-
 </body>
 </html>

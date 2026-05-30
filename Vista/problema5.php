@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema5Controller;
 use App\Utilidades\Sanitizacion;
+use App\Utilidades\Componentes;
 
 $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y obtiene el resultado para mostrarlo en la vista
 ?>
@@ -47,6 +48,8 @@ $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y ob
     <?php endfor; ?>
     
     <button type="submit">Clasificar</button>
+    <?= Componentes::btnLimpiar() ?>
+    <?= Componentes::scriptLimpiar() ?>
 </form>
 
 <!--Muestra los resultados de la clasificación si no hay errores-->
