@@ -52,11 +52,10 @@ $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y ob
 <!--Muestra los resultados de la clasificación si no hay errores-->
 <?php if ($resultado !== null && empty($resultado['errores'])): ?>
 
-    <h2>Repetición de edades</h2>
-
     <!--Muestra las edades que se repitieron y cuántas veces se repitieron-->
     <?php foreach ($resultado['repeticiones'] as $edad => $cantidad): ?>
         <?php if ($cantidad > 1): ?>
+            <h2>Repetición de edades</h2>
             <p>La edad <?= $edad ?> se repitió <?= $cantidad ?> veces</p>
         <?php endif; ?>
     <?php endforeach; ?>
