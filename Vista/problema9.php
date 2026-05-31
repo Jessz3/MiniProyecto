@@ -4,7 +4,7 @@ use App\Controladores\Problema9Controller;
 use App\Utilidades\Componentes;
 use App\Utilidades\Sanitizacion;
 
-$resultado = Problema9Controller::calcular();
+$resultado = Problema9Controller::procesar($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -16,45 +16,44 @@ $resultado = Problema9Controller::calcular();
 </head>
 <body>
 
-<h1>Problema 9</h1>
+<h1>15 primeras Potencias de un Número</h1>
 
 <form method="POST">
+    <div class="campo">
+        <input
+            type="number"
+            name="numero"
+            placeholder="Ingrese un número"
+            value="<?= Sanitizacion::escaparHTML($_POST['numero'] ?? '') ?>"
+        >
 
-    <input
-        type="number"
-        name="numero"
-        placeholder="Ingrese un número"
-        required
-    >
-
-    <button type="submit" name="calcular">
-        Generar
-    </button>
-
-    <div class="botones">
-        <?= Componentes::btnLimpiar() ?>
-        <?= Componentes::scriptLimpiar() ?>
+        <?php if (!empty($resultado['errores'])): ?>
+            <p class="error"><?= $resultado['errores'][0] ?></p>
+        <?php endif; ?>
     </div>
 
+    <div class="botones">
+        <button type="submit" name="calcular">Generar</button>
+        <?= Componentes::btnLimpiar() ?>
+    </div>
 </form>
 
-<?php if ($resultado): ?>
-
-    <h2>Potencias</h2>
-
-    <ul>
-        <?php foreach ($resultado as $indice => $valor): ?>
-            <li>
-                <?= $_POST['numero'] ?>
-                <sup><?= $indice + 1 ?></sup>
-                =
-                <?= $valor ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-
+<?php if (!empty($resultado['potencias'])): ?>
+    <div class="resultado">
+        <h2>Potencias</h2>
+        <ul>
+            <?php foreach ($resultado['potencias'] as $indice => $valor): ?>
+                <li>
+                    <?= Sanitizacion::escaparHTML((string)$resultado['numero']) ?>
+                    <sup><?= $indice + 1 ?></sup>
+                    = <?= $valor ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
 
+<?= Componentes::scriptLimpiar() ?>
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
 
 </body>

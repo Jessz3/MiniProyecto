@@ -2,9 +2,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema7Controller;
 use App\Utilidades\Componentes;
-use App\Utilidades\Sanitizacion;
 
-$resultado = Problema7Controller::calcular();
+$resultado = Problema7Controller::procesar($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ $resultado = Problema7Controller::calcular();
 </head>
 <body>
 
-<h1>Problema 7</h1>
+<h1>Calculadora de Datos Estadísticos</h1>
 
 <form method="POST">
 
@@ -29,9 +28,11 @@ $resultado = Problema7Controller::calcular();
         required
     >
 
-    <button type="submit" name="generar">
-        Generar campos
-    </button>
+    <div class="botones">
+        <button type="submit" name="generar">Generar campos</button>
+        <?= Componentes::btnLimpiar() ?>
+        <?= Componentes::scriptLimpiar() ?>
+    </div>
 
     <br><br>
 
@@ -48,18 +49,12 @@ $resultado = Problema7Controller::calcular();
         echo "<button type='submit' name='calcular'>Calcular</button>";
     }
     ?>
-
-    <div class="botones">
-        <?= Componentes::btnLimpiar() ?>
-        <?= Componentes::scriptLimpiar() ?>
-    </div>
-
 </form>
 
 <?php if ($resultado && isset($resultado['promedio'])): ?>
 
-    <h2>Promedio: <?= $resultado['promedio'] ?></h2>
-    <h2>Desviación estándar: <?= $resultado['desviacion'] ?></h2>
+    <h2>Promedio: <?= round($resultado['promedio'], 2) ?></h2>
+    <h2>Desviación estándar: <?= round($resultado['desviacion'], 2) ?></h2>
     <h2>Nota mínima: <?= $resultado['minimo'] ?></h2>
     <h2>Nota máxima: <?= $resultado['maximo'] ?></h2>
 
