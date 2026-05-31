@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Modelo;
+use App\Utilidades\Matematicas;
+
 class Secuencias {
 
     //Suma 1-1000
@@ -36,5 +38,14 @@ class Secuencias {
         }
 
     //Potencias
-}   
-?>
+    public static function generarPotencias(int $numero): array {
+
+        $potencias = [];
+
+        for ($i = 1; $i <= 15; $i++) {
+            $potencias[] = Matematicas::potencia($numero, $i);
+        }
+
+        return $potencias;
+    }
+} 
