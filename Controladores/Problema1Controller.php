@@ -34,7 +34,7 @@ class Problema1Controller {
 
             // Validar positivo
             if (!Validaciones::validarPositivo($numero)) {
-                $errores[] = "El número $i debe ser positivo";
+                $errores[] = "El número $i no puede ser negativo";
                 continue;
             }
 

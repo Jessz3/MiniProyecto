@@ -19,11 +19,16 @@ $resultado = Problema1Controller::procesar($_POST);
 
 <form method="POST">
 
-    <input type="text" name="n1" placeholder="Número 1" required>
-    <input type="text" name="n2" placeholder="Número 2" required>
-    <input type="text" name="n3" placeholder="Número 3" required>
-    <input type="text" name="n4" placeholder="Número 4" required>
-    <input type="text" name="n5" placeholder="Número 5" required>
+    <input type="number" name="n1" placeholder="Número 1" step="any"
+       value="<?= $_POST['n1'] ?? '' ?>">
+    <input type="number" name="n2" placeholder="Número 2" step="any"
+       value="<?= $_POST['n2'] ?? '' ?>">
+    <input type="number" name="n3" placeholder="Número 3" step="any"
+       value="<?= $_POST['n3'] ?? '' ?>">
+    <input type="number" name="n4" placeholder="Número 4" step="any"
+       value="<?= $_POST['n4'] ?? '' ?>">
+    <input type="number" name="n5" placeholder="Número 5" step="any"
+       value="<?= $_POST['n5'] ?? '' ?>">
 
     <div class="botones">
         <button type="submit" name="calcular">Calcular</button>
@@ -32,13 +37,19 @@ $resultado = Problema1Controller::procesar($_POST);
     </div>
 </form>
 
-<?php if ($resultado): ?>
+<?php if (!empty($resultado['errores'])): ?>
+    <?php foreach ($resultado['errores'] as $error): ?>
+        <p class="error"><?= $error ?></p>
+    <?php endforeach; ?>
+<?php endif; ?>
 
-    <h2>Media: <?= round($resultado['media'], 2) ?></h2>
-    <h2>Desviación estándar: <?= round($resultado['desviacion'], 2) ?></h2>
-    <h2>Mínimo: <?= $resultado['minimo'] ?></h2>
-    <h2>Máximo: <?= $resultado['maximo'] ?></h2>
-
+<?php if (isset($resultado['media'])): ?>
+    <div class="resultado">
+        <p><strong>Media:</strong> <?= round($resultado['media'], 2) ?></p>
+        <p><strong>Desviación estándar:</strong> <?= round($resultado['desviacion'], 2) ?></p>
+        <p><strong>Mínimo:</strong> <?= $resultado['minimo'] ?></p>
+        <p><strong>Máximo:</strong> <?= $resultado['maximo'] ?></p>
+    </div>
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>

@@ -25,6 +25,7 @@ $resultado = Problema9Controller::procesar($_POST);
             name="numero"
             placeholder="Ingrese un número"
             value="<?= Sanitizacion::escaparHTML($_POST['numero'] ?? '') ?>"
+            required
         >
 
         <?php if (!empty($resultado['errores'])): ?>
@@ -35,6 +36,7 @@ $resultado = Problema9Controller::procesar($_POST);
     <div class="botones">
         <button type="submit" name="calcular">Generar</button>
         <?= Componentes::btnLimpiar() ?>
+        <?= Componentes::scriptLimpiar() ?>
     </div>
 </form>
 
@@ -53,7 +55,6 @@ $resultado = Problema9Controller::procesar($_POST);
     </div>
 <?php endif; ?>
 
-<?= Componentes::scriptLimpiar() ?>
 <?php require_once __DIR__ . '/layout/footer.php'; ?>
 
 </body>
