@@ -4,6 +4,12 @@ use App\Controladores\Problema2Controller;
 use App\Utilidades\Componentes;
 
 $resultado = Problema2Controller::calcular(); //Llama a la función calcular del controlador para obtener el resultado de la suma del 1 al 1000.
+
+// Variables para el header reutilizable
+$numeroProblem = 2;
+$tituloPagina  = 'Suma del 1 al 1000';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +20,7 @@ $resultado = Problema2Controller::calcular(); //Llama a la función calcular del
 </head>
 <body>
 
-<h1>Suma del 1 al 1000</h1>
+<p class="descripcion">Calcula la suma de todos los enteros del 1 al 1000.</p>
 
 <?php if ($resultado !== null): ?>
     <h2>Resultado: <?= $resultado ?></h2>

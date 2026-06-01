@@ -4,6 +4,12 @@ use App\Controladores\Problema4Controller;
 use App\Utilidades\Componentes;
 
 $resultado = Problema4Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 4;
+$tituloPagina  = 'Suma de Pares e Impares';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +21,11 @@ $resultado = Problema4Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>Suma independiente de los pares e impares de 1-200</h1>
+<p class="descripcion">Suma independiente de los enteros pares e impares del 1 al 200.</p>
 
 <?php if ($resultado !== null): ?>
-    <p>Suma de pares: <?= $resultado['par'] ?></p>
-    <p>Suma de impares: <?= $resultado['impar'] ?></p>
+    <h2>Suma de pares: <?= $resultado['par'] ?></h2>
+    <h2>Suma de impares: <?= $resultado['impar'] ?></h2>
 <?php endif; ?>
 
 <form method="POST">

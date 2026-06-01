@@ -5,6 +5,12 @@ use App\Utilidades\Sanitizacion;
 use App\Utilidades\Componentes;
 
 $resultado = Problema8Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 8;
+$tituloPagina  = 'Estación del Año';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +23,7 @@ $resultado = Problema8Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>Estación del Año</h1>
-<p>Ingrese una fecha para ver la estación.</p>
-
+<p class="descripcion">Ingrese una fecha para ver la estación.</p>
 <form method="POST">
 
     <div class="campo">

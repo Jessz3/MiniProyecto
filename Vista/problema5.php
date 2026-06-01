@@ -5,6 +5,12 @@ use App\Utilidades\Sanitizacion;
 use App\Utilidades\Componentes;
 
 $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y obtiene el resultado para mostrarlo en la vista
+
+// Variables para el header reutilizable
+$numeroProblem = 5;
+$tituloPagina  = 'Clasificación de Edades';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +26,7 @@ $resultado = Problema5Controller::procesar($_POST); //Procesa el formulario y ob
 
 <body>
 
-<h1>Clasificación de Edades</h1>
-<p>Ingrese 5 edades para clasificarlas:</p>
+<p class="descripcion">Ingrese 5 edades para clasificarlas.</p>
 
 <!--Formulario para ingresar las edades, con validación y sanitización-->
 <form method="POST">

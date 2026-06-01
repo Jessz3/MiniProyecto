@@ -5,6 +5,12 @@ use App\Utilidades\Componentes;
 use App\Utilidades\Sanitizacion;
 
 $resultado = Problema6Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 6;
+$tituloPagina  = 'Hospital Hou Luo Zheng - Reparto Presupuestario';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +23,7 @@ $resultado = Problema6Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>Hospital Hou Luo Zheng</h1>
-<p>Distribución del presupuesto anual por departamento.</p>
+<p class="descripcion">Ingrese el presupuesto anual para calcular su distribución por departamento.</p>
 
 <form method="POST">
     <div class="campo">

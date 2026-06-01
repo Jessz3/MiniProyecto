@@ -1,11 +1,14 @@
-<!--Footer reutilizable-->
-
 <?php 
 use App\Utilidades\Navegacion; 
 ?>
 
-<footer>
-    <p>Por Erick Hou, Génesis Luo y Jessica Zheng</p>
-    <p>Fecha de Ejecución: <?php echo date("d-m-Y");?></p>
-    <p><?= Navegacion::crearEnlace('../index.php', 'Volver al menú principal');?></p>
+</main><!-- /contenido -->
+
+<footer class="site-footer">
+    <p>Erick Hou &nbsp;·&nbsp; Génesis Luo &nbsp;·&nbsp; Jessica Zheng</p>
+    <p class="footer-fecha">Fecha de ejecución: <?= date("d/m/Y") ?></p>
+    <p class="footer-link"><?= Navegacion::crearEnlace('../index.php', 'Volver al menú principal');?></p>
 </footer>
+
+</body>
+</html>

@@ -4,6 +4,12 @@ use App\Controladores\Problema1Controller;
 use App\Utilidades\Componentes;
 
 $resultado = Problema1Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 1;
+$tituloPagina  = 'Cálculo de Media, Desviación Estándar, Mínimo y Máximo';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +21,9 @@ $resultado = Problema1Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>Cálculo de Media, Desviación Estándar, Mínimo y Máximo</h1>
+<p class="descripcion">Insertar 5 números para calcular sus estadísticas descriptivas.</p>
 
 <form method="POST">
-
     <input type="number" name="n1" placeholder="Número 1" step="any"
        value="<?= $_POST['n1'] ?? '' ?>">
     <input type="number" name="n2" placeholder="Número 2" step="any"

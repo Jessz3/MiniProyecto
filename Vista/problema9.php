@@ -5,6 +5,12 @@ use App\Utilidades\Componentes;
 use App\Utilidades\Sanitizacion;
 
 $resultado = Problema9Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 9;
+$tituloPagina  = '15 primeras Potencias de un Número';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@ $resultado = Problema9Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>15 primeras Potencias de un Número</h1>
+<p class="descripcion">Ingrese un número para generar sus 15 primeras potencias.</p>
 
 <form method="POST">
     <div class="campo">

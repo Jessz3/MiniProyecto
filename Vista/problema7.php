@@ -4,6 +4,12 @@ use App\Controladores\Problema7Controller;
 use App\Utilidades\Componentes;
 
 $resultado = Problema7Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 7;
+$tituloPagina  = 'Calculadora de Datos Estadísticos';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +21,7 @@ $resultado = Problema7Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>Calculadora de Datos Estadísticos</h1>
+<p class="descripcion">Calcule promedio, desviación y rango de N notas.</p>
 
 <form method="POST">
 

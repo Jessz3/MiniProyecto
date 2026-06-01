@@ -5,6 +5,12 @@ use App\Utilidades\Componentes;
 use App\Utilidades\Sanitizacion;
 
 $resultado = Problema3Controller::procesar($_POST);
+
+// Variables para el header reutilizable
+$numeroProblem = 3;
+$tituloPagina  = 'N- Múltiplos de 4';
+ 
+require __DIR__ . '/layout/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@ $resultado = Problema3Controller::procesar($_POST);
 </head>
 <body>
 
-<h1>N- Múltiplos de 4</h1>
+<p class="descripcion">Ingrese la cantidad de múltiplos de 4 a mostrar.</p>
 
 <form method="POST">
     <div class="campo">
@@ -30,7 +36,7 @@ $resultado = Problema3Controller::procesar($_POST);
     </div>
 
     <div class="botones">
-        <button type="submit" name="calcular">Ver resultado</button>
+        <button type="submit" name="calcular">Ver múltiplos</button>
         <?= Componentes::btnLimpiar() ?>
         <?= Componentes::scriptLimpiar() ?>
     </div>
