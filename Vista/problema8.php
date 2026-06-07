@@ -44,15 +44,16 @@ require __DIR__ . '/layout/header.php';
 </form>
 
 <?php if ($resultado !== null && empty($resultado['errores'])): ?>
-    <p>
-        <strong>Fecha ingresada:</strong>
-        <?= Sanitizacion::escaparHTML($resultado['fecha']) ?>
-    </p>
-
-    <p>
-        <strong>La estación es:</strong>
-        <?= $resultado['estacion'] ?>
-    </p>
+    <div class="resultado">
+        <p>
+            <strong>Fecha ingresada:</strong>
+            <?= Sanitizacion::escaparHTML($resultado['fecha']) ?>
+        </p>
+        <p>
+            <strong>La estación es:</strong>
+            <?= $resultado['estacion'] ?>
+        </p>
+    </div>
 
     <!--Imagen de la estación. Si no hay imagen, no se muestra nada -->
     <?php if (!empty($resultado['imagen'])): ?>

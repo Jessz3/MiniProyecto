@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema1Controller;
 use App\Utilidades\Componentes;
+use App\Utilidades\Sanitizacion;
 
 $resultado = Problema1Controller::procesar($_POST);
 
@@ -24,16 +25,16 @@ require __DIR__ . '/layout/header.php';
 <p class="descripcion">Insertar 5 números para calcular sus estadísticas descriptivas.</p>
 
 <form method="POST">
-    <input type="number" name="n1" placeholder="Número 1" step="any"
-       value="<?= $_POST['n1'] ?? '' ?>">
-    <input type="number" name="n2" placeholder="Número 2" step="any"
-       value="<?= $_POST['n2'] ?? '' ?>">
-    <input type="number" name="n3" placeholder="Número 3" step="any"
-       value="<?= $_POST['n3'] ?? '' ?>">
-    <input type="number" name="n4" placeholder="Número 4" step="any"
-       value="<?= $_POST['n4'] ?? '' ?>">
-    <input type="number" name="n5" placeholder="Número 5" step="any"
-       value="<?= $_POST['n5'] ?? '' ?>">
+    <?php for ($i = 0; $i < 5; $i++): ?>
+    <div class="campo">
+        <input type="number" name="numeros[]" placeholder="Número <?= $i + 1 ?>" step="any"
+               value="<?= Sanitizacion::escaparHTML($_POST['numeros'][$i] ?? '') ?>">
+
+        <?php if (isset($resultado['errores'][$i])): ?>
+            <p class="error"><?= $resultado['errores'][$i] ?></p>
+        <?php endif; ?>
+    </div>
+    <?php endfor; ?>
 
     <div class="botones">
         <button type="submit" name="calcular">Calcular</button>

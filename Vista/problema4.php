@@ -24,8 +24,10 @@ require __DIR__ . '/layout/header.php';
 <p class="descripcion">Suma independiente de los enteros pares e impares del 1 al 200.</p>
 
 <?php if ($resultado !== null): ?>
-    <h2>Suma de pares: <?= $resultado['par'] ?></h2>
-    <h2>Suma de impares: <?= $resultado['impar'] ?></h2>
+    <div class="resultado">
+        <h2>Suma de pares: <?= $resultado['par'] ?></h2>
+        <h2>Suma de impares: <?= $resultado['impar'] ?></h2>
+    </div>
 <?php endif; ?>
 
 <form method="POST">

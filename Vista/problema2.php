@@ -23,7 +23,7 @@ require __DIR__ . '/layout/header.php';
 <p class="descripcion">Calcula la suma de todos los enteros del 1 al 1000.</p>
 
 <?php if ($resultado !== null): ?>
-    <h2>Resultado: <?= $resultado ?></h2>
+    <h2 class="resultado">Resultado: <?= $resultado ?></h2>
 <?php endif; ?>
 
 <form method="POST">

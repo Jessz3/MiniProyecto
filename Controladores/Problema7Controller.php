@@ -46,12 +46,12 @@ class Problema7Controller {
             $nota = Sanitizacion::limpiarEtiquetas($nota);
 
             if (!Validaciones::validarVacio($nota)) {
-                $errores[] = "La nota #" . ($indice + 1) . " está vacía";
+                $errores[$indice] = "La nota #" . ($indice + 1) . " está vacía";
                 continue;
             }
 
             if (!Validaciones::validarCeroACien($nota)) {
-                $errores[] = "La nota #" . ($indice + 1) . " debe estar entre 0 y 100";
+                $errores[$indice] = "La nota #" . ($indice + 1) . " debe estar entre 0 y 100";
                 continue;
             }
 

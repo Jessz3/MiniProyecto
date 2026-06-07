@@ -15,26 +15,26 @@ class Problema1Controller {
         $errores = [];
 
         // Verifica si el formulario fue enviado
-        if (!isset($post['n1'])) {
+        if (!isset($post['numeros']) || !is_array($post['numeros'])) {
             return null;
         }
 
         // Procesa los 5 números
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
 
             // Sanitización
-            $numero = Sanitizacion::quitarEspacios($post["n$i"]);
+            $numero = Sanitizacion::quitarEspacios($post["numeros"][$i] ?? '');
             $numero = Sanitizacion::limpiarEtiquetas($numero);
 
             // Validar vacío
             if (!Validaciones::validarVacio($numero)) {
-                $errores[] = "El número $i no puede estar vacío";
+                $errores[$i] = "El número " . ($i + 1) . " no puede estar vacío";
                 continue;
             }
 
             // Validar positivo
             if (!Validaciones::validarPositivo($numero)) {
-                $errores[] = "El número $i no puede ser negativo";
+                $errores[$i] = "El número " . ($i + 1) . " no puede ser negativo";
                 continue;
             }
 

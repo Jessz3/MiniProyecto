@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use App\Controladores\Problema7Controller;
 use App\Utilidades\Componentes;
+use App\Utilidades\Sanitizacion;
 
 $resultado = Problema7Controller::procesar($_POST);
 
@@ -25,14 +26,16 @@ require __DIR__ . '/layout/header.php';
 
 <form method="POST">
 
-    <label>Cantidad de notas:</label>
-    <input
-        type="number"
-        name="cantidad"
-        min="1"
-        value="<?= $_POST['cantidad'] ?? '' ?>"
-        required
-    >
+    <div class="campo">
+        <label>Cantidad de notas:</label>
+        <input
+            type="number"
+            name="cantidad"
+            min="1"
+            value="<?= $_POST['cantidad'] ?? '' ?>"
+            required
+        >
+    </div>
 
     <div class="botones">
         <button type="submit" name="generar">Generar campos</button>
@@ -43,35 +46,41 @@ require __DIR__ . '/layout/header.php';
     <br><br>
 
     <?php
-    if (isset($_POST['generar']) && !empty($_POST['cantidad'])) {
-
+    $cantidad = 0;
+    if (isset($_POST['cantidad']) && $_POST['cantidad'] > 0) {
         $cantidad = (int)$_POST['cantidad'];
-
-        for ($i = 0; $i < $cantidad; $i++) {
-            echo "<label>Nota " . ($i + 1) . ":</label>";
-            echo "<input type='number' name='notas[]' step='0.01' required><br><br>";
-        }
-
-        echo "<button type='submit' name='calcular'>Calcular</button>";
     }
     ?>
+
+    <?php if ($cantidad > 0): ?>
+        <?php for ($i = 0; $i < $cantidad; $i++): ?>
+            <div class="campo">
+                <label>Nota <?= $i + 1 ?>:</label>
+                <input
+                    type="number"
+                    name="notas[]"
+                    step="0.01"
+                    value="<?= Sanitizacion::escaparHTML($_POST['notas'][$i] ?? '') ?>"
+                    required
+                >
+                <?php if (isset($resultado['errores'][$i])): ?>
+                    <p class="error"><?= $resultado['errores'][$i] ?></p>
+                <?php endif; ?>
+            </div>
+        <?php endfor; ?>
+
+        <button type="submit" name="calcular">Calcular</button>
+    <?php endif; ?>
+
 </form>
 
 <?php if ($resultado && isset($resultado['promedio'])): ?>
-
-    <h2>Promedio: <?= round($resultado['promedio'], 2) ?></h2>
-    <h2>Desviación estándar: <?= round($resultado['desviacion'], 2) ?></h2>
-    <h2>Nota mínima: <?= $resultado['minimo'] ?></h2>
-    <h2>Nota máxima: <?= $resultado['maximo'] ?></h2>
-
-<?php endif; ?>
-
-<?php if ($resultado && !empty($resultado['errores'])): ?>
-
-    <?php foreach ($resultado['errores'] as $error): ?>
-        <p><?= $error ?></p>
-    <?php endforeach; ?>
-
+    <div class="resultado">
+        <h2>Promedio: <?= round($resultado['promedio'], 2) ?></h2>
+        <h2>Desviación estándar: <?= round($resultado['desviacion'], 2) ?></h2>
+        <h2>Nota mínima: <?= $resultado['minimo'] ?></h2>
+        <h2>Nota máxima: <?= $resultado['maximo'] ?></h2>
+    </div>
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/layout/footer.php'; ?>

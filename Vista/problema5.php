@@ -34,9 +34,7 @@ require __DIR__ . '/layout/header.php';
     <!--Genera 5 campos de entrada para las edades-->
     <?php for ($i = 0; $i < 5; $i++): ?>
 
-    <div class="campo">
-
-        
+    <div class="campo"> 
         <!--Campo de entrada para la edad, con sanitización para evitar XSS-->
         <input type="number" name="edades[]" placeholder="Edad <?= $i + 1 ?>" min="0" required 
         value="<?= Sanitizacion::escaparHTML($_POST['edades'][$i] ?? '') ?>"> 
@@ -47,7 +45,6 @@ require __DIR__ . '/layout/header.php';
                 <?= $resultado['errores'][$i] ?>
             </p>
         <?php endif; ?>
-
     </div>
 
     <?php endfor; ?>
@@ -63,8 +60,10 @@ require __DIR__ . '/layout/header.php';
     <!--Muestra las edades que se repitieron y cuántas veces se repitieron-->
     <?php foreach ($resultado['repeticiones'] as $edad => $cantidad): ?>
         <?php if ($cantidad > 1): ?>
-            <h2>Repetición de edades</h2>
-            <p>La edad <?= $edad ?> se repitió <?= $cantidad ?> veces</p>
+            <div class="resultado">
+                <h2>Repetición de edades</h2>
+                <p>La edad <?= $edad ?> se repitió <?= $cantidad ?> veces</p>
+            </div>
         <?php endif; ?>
     <?php endforeach; ?>
     
