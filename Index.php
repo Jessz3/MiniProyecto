@@ -74,6 +74,7 @@ use App\Utilidades\Navegacion;
     <p>Universidad Tecnológica de Panamá</p>
     <p>Licenciatura en Desarrollo & Gestión de Software - Desarrollo de Software VII</p>
     <p>Erick Hou &nbsp;·&nbsp; Genesis Luo &nbsp;·&nbsp; Jessica Zheng</p>
+    <p>Fecha de ejecución: <?= date("d/m/Y") ?></p>
     <p>&copy; 2026 Todos los derechos reservados.</p>
 </footer>
 
