@@ -25,6 +25,7 @@ require __DIR__ . '/layout/header.php';
 <p class="descripcion">Ingrese la cantidad de múltiplos de 4 a mostrar.</p>
 
 <form method="POST">
+    <!--Campo para ingresar la cantidad de múltiplos de 4, con validación y sanitización-->
     <div class="campo">
         <label for="cantidad">Ingrese la cantidad de múltiplos de 4 a mostrar:</label>
         <input type="text" id="cantidad" name="cantidad"
@@ -35,6 +36,7 @@ require __DIR__ . '/layout/header.php';
         <?php endif; ?>
     </div>
 
+    <!--Botones para enviar el formulario y limpiar los campos-->
     <div class="botones">
         <button type="submit" name="calcular">Ver múltiplos</button>
         <?= Componentes::btnLimpiar() ?>
@@ -42,6 +44,7 @@ require __DIR__ . '/layout/header.php';
     </div>
 </form>
 
+<!--Muestra los múltiplos de 4 si no hay errores-->
 <?php if (!empty($resultado['multiplos'])): ?>
     <div class="resultado">
         <?php foreach ($resultado['multiplos'] as $i => $multiplo): ?>

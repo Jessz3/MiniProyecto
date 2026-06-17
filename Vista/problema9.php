@@ -46,6 +46,7 @@ require __DIR__ . '/layout/header.php';
     </div>
 </form>
 
+<!-- Mostrar resultados si se han calculado -->
 <?php if (!empty($resultado['potencias'])): ?>
     <div class="resultado">
         <h2>Potencias</h2>

@@ -45,6 +45,7 @@ require __DIR__ . '/layout/header.php';
 
     <br><br>
 
+    <!-- Mostrar campos para ingresar las notas si se ha enviado la cantidad -->
     <?php
     $cantidad = 0;
     if (isset($_POST['cantidad']) && $_POST['cantidad'] > 0) {
@@ -74,6 +75,7 @@ require __DIR__ . '/layout/header.php';
 
 </form>
 
+<!-- Mostrar resultados si se han calculado -->
 <?php if ($resultado && isset($resultado['promedio'])): ?>
     <div class="resultado">
         <h2>Promedio: <?= round($resultado['promedio'], 2) ?></h2>

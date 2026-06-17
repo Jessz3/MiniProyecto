@@ -24,12 +24,14 @@ require __DIR__ . '/layout/header.php';
 
 <p class="descripcion">Insertar 5 números para calcular sus estadísticas descriptivas.</p>
 
+<!-- Formulario para ingresar los números -->
 <form method="POST">
     <?php for ($i = 0; $i < 5; $i++): ?>
     <div class="campo">
         <input type="number" name="numeros[]" placeholder="Número <?= $i + 1 ?>" step="any"
                value="<?= Sanitizacion::escaparHTML($_POST['numeros'][$i] ?? '') ?>">
 
+               <!-- Mostrar error específico para cada campo si existe -->
         <?php if (isset($resultado['errores'][$i])): ?>
             <p class="error"><?= $resultado['errores'][$i] ?></p>
         <?php endif; ?>
@@ -43,12 +45,14 @@ require __DIR__ . '/layout/header.php';
     </div>
 </form>
 
+<!-- Mostrar errores generales si existen -->
 <?php if (!empty($resultado['errores'])): ?>
     <?php foreach ($resultado['errores'] as $error): ?>
         <p class="error"><?= $error ?></p>
     <?php endforeach; ?>
 <?php endif; ?>
 
+<!-- Mostrar resultados si el cálculo fue exitoso -->
 <?php if (isset($resultado['media'])): ?>
     <div class="resultado">
         <p><strong>Media:</strong> <?= round($resultado['media'], 2) ?></p>

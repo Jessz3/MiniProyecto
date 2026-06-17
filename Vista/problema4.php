@@ -23,6 +23,7 @@ require __DIR__ . '/layout/header.php';
 
 <p class="descripcion">Suma independiente de los enteros pares e impares del 1 al 200.</p>
 
+<!-- Mostrar el resultado si se ha calculado -->
 <?php if ($resultado !== null): ?>
     <div class="resultado">
         <h2>Suma de pares: <?= $resultado['par'] ?></h2>

@@ -78,7 +78,7 @@ require __DIR__ . '/layout/header.php';
         new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: <?= json_encode(array_keys($resultado['reparto'])) ?>,
+                labels: <?= json_encode(array_keys($resultado['reparto'])) ?>, // Nombres de los departamentos
                 datasets: [{
                     data: <?= json_encode(array_values($resultado['reparto'])) ?>,
                     backgroundColor: ['#3498db', '#e74c3c', '#2ecc71'],
