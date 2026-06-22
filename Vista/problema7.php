@@ -32,6 +32,7 @@ require __DIR__ . '/layout/header.php';
             type="number"
             name="cantidad"
             min="1"
+            max="30"
             value="<?= $_POST['cantidad'] ?? '' ?>"
             required
         >
